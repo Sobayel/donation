@@ -3,7 +3,7 @@ import React from "react";
 
 
 
-const Banner = ({setValue}) => {
+const Banner = ({setValue, handleSearch}) => {
     return (
         <div className="h-[400px] relative flex flex-col justify-center items-center">
             <div className="absolute inset-0 bg-[url('/src/assets/images/bg.png')] bg-cover bg-center bg-no-repeat opacity-15">
@@ -22,6 +22,7 @@ const Banner = ({setValue}) => {
                 <Button
                     size="sm"
                     color="red"
+                    onClick={()=>handleSearch()}
                     className="!absolute right-1 top-1 rounded"
                 >
                     SEARCH

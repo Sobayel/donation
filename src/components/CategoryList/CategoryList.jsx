@@ -1,12 +1,12 @@
-import useDonationData from "../../Hooks/useDonationData";
+/* eslint-disable react/prop-types */
 import CardDefault from "../Card/CardDefault";
 
-const CategoryList = () => {
-    const {data, loading} = useDonationData()
+const CategoryList = ({filterData}) => {
+    
     return (
         <div className="grid grid-cols-4 gap-6 max-w-7xl py-3 mx-auto mt-12">
            {
-            data.map((item) => (
+            filterData.map((item) => (
                 <CardDefault key={item.id} item={item}></CardDefault>
             ))
            }
