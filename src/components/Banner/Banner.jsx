@@ -1,9 +1,12 @@
+/* eslint-disable react/prop-types */
 import { Button, Input, Typography } from "@material-tailwind/react";
-import React from "react";
 
 
 
-const Banner = ({setValue, handleSearch}) => {
+const Banner = ({value, setValue, handleSearch}) => {
+    const clearInput = () => {
+        setValue("");
+    }
     return (
         <div className="h-[400px] relative flex flex-col justify-center items-center">
             <div className="absolute inset-0 bg-[url('/src/assets/images/bg.png')] bg-cover bg-center bg-no-repeat opacity-15">
@@ -13,6 +16,7 @@ const Banner = ({setValue, handleSearch}) => {
                 <Input
                     type="email"
                     label="Search"
+                    value={value}
                     onChange={(e)=> setValue(e.target.value)}
                     className="pr-20"
                     containerProps={{
@@ -22,7 +26,10 @@ const Banner = ({setValue, handleSearch}) => {
                 <Button
                     size="sm"
                     color="red"
-                    onClick={()=>handleSearch()}
+                    onClick={()=>{
+                        handleSearch();
+                        clearInput();
+                    }}
                     className="!absolute right-1 top-1 rounded"
                 >
                     SEARCH

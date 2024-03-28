@@ -6,6 +6,7 @@ import {Card, CardHeader, CardBody, Typography, Button, } from "@material-tailwi
 import { saveToLocalStorage } from "../../Utils/localStorage";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import CustomSpinner from "../../components/Spinner/CustomSpinner";
 
 const DonationDetails = () => {
     const [singleData, setSingleData] = useState({});
@@ -16,7 +17,7 @@ const DonationDetails = () => {
     const handleDonate = () => {
         saveToLocalStorage(singleData);
     }
-
+    
 
     useEffect(()=>{
         if(data){
@@ -26,6 +27,10 @@ const DonationDetails = () => {
         }
     },[data, id]);
     const {image, title, description, textColor, price} = singleData || {};
+
+    if(loading){
+      return <CustomSpinner></CustomSpinner>
+    }
     return (
         <Card className="mt-12 w-full rounded-md shadow-none lg:px-20 overflow-hidden">
       <CardHeader

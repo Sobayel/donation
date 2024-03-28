@@ -7,6 +7,7 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import CustomSpinner from "../../../components/Spinner/CustomSpinner";
 
 function NavList() {
     return (
@@ -17,7 +18,17 @@ function NavList() {
           color="blue-gray"
           className="p-1 font-medium"
         >
-          <NavLink to={"/"} className="flex items-center hover:text-red-700 hover:underline text-xl transition-colors">
+          <NavLink to={"/"} 
+          className={({ isActive, isPending }) =>
+                      isActive
+                        ? "text-red-500 font-bold underline text-xl"
+                        : isPending
+                        ? <CustomSpinner></CustomSpinner>
+                        : (
+                          "flex items-center hover:text-red-700 hover:underline text-xl transition-colors"
+                        )
+                    }
+          >
             Home
           </NavLink>
         </Typography>
@@ -27,7 +38,17 @@ function NavList() {
           color="blue-gray"
           className="p-1 font-medium"
         >
-          <NavLink to={"/donation"} className="flex items-center hover:text-red-700 hover:underline text-xl transition-colors">
+          <NavLink to={"/donation"}
+           className={({ isActive, isPending }) =>
+           isActive
+             ? "text-red-500 font-bold underline text-xl"
+             : isPending
+             ? <CustomSpinner></CustomSpinner>
+             : (
+               "flex items-center hover:text-red-700 hover:underline text-xl transition-colors"
+             )
+         }
+           >
             Donation
           </NavLink>
         </Typography>
@@ -37,7 +58,17 @@ function NavList() {
           color="blue-gray"
           className="p-1 font-medium"
         >
-          <NavLink to={"/statistics"} className="flex items-center hover:text-red-700 hover:underline text-xl transition-colors">
+          <NavLink to={"/statistics"}
+           className={({ isActive, isPending }) =>
+           isActive
+             ? "text-red-500 font-bold underline text-xl"
+             : isPending
+             ? <CustomSpinner></CustomSpinner>
+             : (
+               "flex items-center hover:text-red-700 hover:underline text-xl transition-colors"
+             )
+         }
+          >
             Statistics
           </NavLink>
         </Typography>
