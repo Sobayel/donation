@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 
 import {Card, CardHeader, CardBody, Typography, Button, } from "@material-tailwind/react";
 import { saveToLocalStorage } from "../../Utils/localStorage";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const DonationDetails = () => {
     const [singleData, setSingleData] = useState({});
@@ -39,6 +41,7 @@ const DonationDetails = () => {
         <div className="absolute bottom-0 bg-opacity-80 bg-black w-full h-28 pl-6 ">
         <Button onClick={handleDonate} style={{backgroundColor:textColor}} className="mt-8 capitalize text-sm">Donate ${price}</Button>
         </div>
+        <ToastContainer></ToastContainer>
       </CardHeader>
       <CardBody>
         <Typography variant="h3" color="blue-gray">

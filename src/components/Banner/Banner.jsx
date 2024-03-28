@@ -3,9 +3,7 @@ import React from "react";
 
 
 
-const Banner = () => {
-    const [email, setEmail] = React.useState("");
-  const onChange = ({ target }) => setEmail(target.value);
+const Banner = ({setValue}) => {
     return (
         <div className="h-[400px] relative flex flex-col justify-center items-center">
             <div className="absolute inset-0 bg-[url('/src/assets/images/bg.png')] bg-cover bg-center bg-no-repeat opacity-15">
@@ -15,8 +13,7 @@ const Banner = () => {
                 <Input
                     type="email"
                     label="Search"
-                    value={email}
-                    onChange={onChange}
+                    onChange={(e)=> setValue(e.target.value)}
                     className="pr-20"
                     containerProps={{
                         className: "min-w-0",

@@ -9,7 +9,6 @@ import {
 import { Link } from "react-router-dom";
 
 const CardDefault = ({item}) => {
-    console.log(item);
     const {id, image, category, title, cardBg, categoryBg, textColor} = item || {};
     return (
         <Link to={`/donation-details/${id}`}>
